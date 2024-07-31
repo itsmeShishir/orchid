@@ -4,6 +4,6 @@ def Home(request):
     return HttpResponse(
         "Hello My name is shsihir")
 
-def Blog(request):
-    return HttpResponse(
-        "Blog Page")
+# def Blog(request):
+#     return HttpResponse(
+#         "Blog Page")

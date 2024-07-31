@@ -22,5 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Home),
     path("", include('blog.urls')),
-    path('blog/', views.Blog)
 ]

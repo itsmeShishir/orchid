@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>This is home page</h1>
-</body>
-</html>
+{% include "header.html" %}
+
+    <ol>
+        {% for a in blogs %}
+            <li>{{a.title}} {{a.description}}, 
+                {{a.username}} {{a.img}}</li>
+        {% endfor %}
+        <img src="../static/img1.jpg" alt="img">
+    </ol>
+
+{% include "footer.html" %}   

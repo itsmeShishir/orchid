@@ -7,3 +7,9 @@ def BlogPage(request):
     return render(request, "index.html",
                    {"blogs":blogs})
 
+def SingleBlog(request, pk):
+    blogs = Blog.objects.get(pk = pk)
+    return render(
+        request, 
+        "single.html",
+        {'blogs':blogs})

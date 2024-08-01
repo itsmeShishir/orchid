@@ -1,5 +1,24 @@
 {% include "header.html" %}
 
+            <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            {% for a in blogs %}
+            <div class="carousel-item active">
+            <img src={{a.img.url}} class="d-block w-100" alt="..." style="height: 650px">
+            </div>
+           {% endfor %}
+            
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+
     <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
@@ -13,7 +32,7 @@
               <p class="card-text">{{a.description}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <a href="{{a.id}}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>

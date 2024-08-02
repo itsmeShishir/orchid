@@ -12,3 +12,14 @@ def HomePage(request):
     }
     return render(request, "index.html",
                    {"context":context})
+
+def BlogPage(request):
+    blog = Blog.objects.all()
+    return render(request, "blog.html", 
+                  {"blog":blog})
+
+
+def CategoryPage(request):
+    category = Category.objects.all()
+    return render(request, "category.html", 
+                  {"category":category})

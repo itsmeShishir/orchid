@@ -52,7 +52,7 @@
               <p class="card-text">{{a.description}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{{a.id}}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a href={% url 'singleblog' pk=a.id %} type="button" class="btn btn-sm btn-outline-secondary">View</a>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>

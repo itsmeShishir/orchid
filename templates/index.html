@@ -2,7 +2,7 @@
 
             <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
-            {% for a in blogs %}
+            {% for a in context.blogs %}
             <div class="carousel-item active">
             <img src={{a.img.url}} class="d-block w-100" alt="..." style="height: 650px">
             </div>
@@ -18,12 +18,32 @@
             <span class="visually-hidden">Next</span>
         </button>
         </div>
+      
+<div class="album py-5 bg-body-tertiary">
+  <h1 class="container">Category</h1>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+         {% for a in context.category %}
+          <div class="col-md-4"> 
+          <div class="card card-01 height-fix">
+          <img class="card-img-top" src={{a.img.url}} alt="Card image cap" height="450" >
+          <div class="card-img-overlay">
+            <h4 class="card-title"><strong>{{a.title}}</strong></h4>
+            <p class="card-text">{{a.description}}</p>
+            <p class="card-text"><a href="#" class="fa fa-bookmark-o"></a><a class="fa fa-heart-o" href="#"></a></p>
+          </div>
+        </div>
+      </div>
+       {% endfor %}
+    </div>
+  </div>
+</div>
 
     <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for a in blogs %}
+        {% for a in context.blogs %}
         <div class="col">
           <div class="card shadow-sm">
             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src={{a.img.url}} role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">

@@ -27,7 +27,9 @@ urlpatterns = [
     path("", include('contact.urls')),
     path('blogs/', views.BlogPage, name="blogs"),
     path('category/', views.CategoryPage, 
-         name="category")
+         name="category"),
+    path('categoryblog/<int:pk>/', views.category_blog, 
+         name="categoryblog")
 ]
 
 if settings.DEBUG:

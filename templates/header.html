@@ -27,9 +27,16 @@
         <li><a href={% url "contact" %} class="nav-link px-2">Contact</a></li>
       </ul>
 
+      {% if user.is_authenticated %}
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
+        <a type="button" href={% url "logout" %} class="btn btn-outline-primary me-2">logout</a>
+        <a type="button" href={% url "register" %} class="btn btn-primary">{{user.username}}</a>
       </div>
+      {% else %}
+      <div class="col-md-3 text-end">
+        <a type="button" href={% url "login" %} class="btn btn-outline-primary me-2">Login</a>
+        <a type="button" href={% url "register" %} class="btn btn-primary">Sign-up</a>
+      </div>
+      {% endif %}
     </header>
   </div>

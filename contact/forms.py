@@ -6,11 +6,7 @@ from django.contrib.auth.models import User
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ["first_name",
-                  "last_name", 
-                  "email",
-                   "description", 
-                   "number"]
+        fields = "__all__"
 
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField()

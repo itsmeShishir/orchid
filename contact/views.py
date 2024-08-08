@@ -5,6 +5,7 @@ from .forms import ContactForm, ContactForms, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm 
 from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
 
 def contact_us(request):
     if request.method == "POST":
@@ -23,6 +24,7 @@ def contact_us(request):
 
     return render(request, "contact.html")
 
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('home')
@@ -50,7 +52,7 @@ def register_view(request):
     else:
         form = UserRegistrationForm()
     return render(request, "register.html", {"form":form})
-
+@login_required
 @require_http_methods(["GET", "POST"])
 def contactUpdate_view(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
@@ -62,12 +64,16 @@ def contactUpdate_view(request, pk):
     else:
         form = ContactForm(instance=contact)
     return render(request, "updateContact.html", {"form":form})
-
+@login_required
 @require_http_methods(["GET", "POST"])
 def contactDelete_view(request, pk):
-    pass
+    contact = get_object_or_404(Contact, pk=pk)
+    if request.method == "POST":
+        contact.delete()
+        return redirect("home")
+    return render(request, "deleteContact.html")
 
-
+@login_required
 def allContact_view(request):
     contact = Contact.objects.all()
     return render(request, "allContact.html", {'contact':contact})

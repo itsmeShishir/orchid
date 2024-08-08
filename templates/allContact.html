@@ -21,8 +21,11 @@
       <td>{{a.number}}</td>
       <td>{{a.description}}</td>
       <td>
-        <button class="btn btn-primary">Update</button>
-        <button class="btn btn-danger">Delete</button>
+        <a href={% url "updateContact" pk=a.id %} class="btn btn-primary">Update</a>
+        <form method="POST" action={%  url "deleteContact" pk=a.id %} >
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
       </td>
     </tr>
     {% endfor %}

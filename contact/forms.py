@@ -1,11 +1,17 @@
 from django import forms
-from contact.models import Contact
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from category.models import Category
+from contact.models import Contact
 
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
+        fields = "__all__"
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
         fields = "__all__"
 
 class UserRegistrationForm(UserCreationForm):

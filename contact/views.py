@@ -109,11 +109,10 @@ def allCategory_view(request):
 
 def all_category(request):
     if request.method == "POST":
-        form = CategoryForm(request.POST)
+        form = CategoryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
         form = CategoryForm()
-
     return render(request, "categoryAdd.html", {'form':form})

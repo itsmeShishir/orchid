@@ -6,11 +6,11 @@
         <div class="d-flex mb-3 flex-column">
           <h1 class="h5 text-capitalize my-4">What service You need ?</h1>
         </div>
-        <form method="POST"  class="row mb-3">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
-        </form>
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Category</button>
+    </form>
       </div>
       <div class="col-lg-4 col-md-12 text-white aside px-4 py-5">
         <div class="mb-5">
